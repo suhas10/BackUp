@@ -1,0 +1,64 @@
+Modules
+1)Spliting of Various classes and function into different files
+2)We use 'export' and 'import'
+3)To use relative path imports we have to use an attibute called module in script tag. This feature isn't supported by certain Browser. We can use other attribute for that called as nomodule.
+4)They always use 'use strict' functionality.
+5)The module level scope is achieved. also known as top-level scope.
+6)The top level global variable isn't associated with window class
+7)A module code is evaluated only once when imported and associated copies are passed on to others.
+8)import.meta contains the information about the current module. Its content depends on the environment.
+9)In a module, "this" is undefined.
+
+		Different attribtues 
+1)Async ,		2)Defer ,			 3)Dynamic
+|			|				by deafult behave async
+|			|
+First Load		Doc order
+Order
+Executed.
+
+DOMContentLoaded	DOMContentLoaded
+|			|
+Irrelevant		Execution after loading of DOM
+
+10)We can't use bare modules ie we need to give either absolute or relative path.
+11)Aysnc working
+	a: For non module scripts it works on external scripts only
+	b: It runs immediately after it's loaded independent of the other scripts
+	c: It works for any(internal,external)scripts for module scripts
+
+
+
+***************Exports and Imports***************
+1)we use webpacks and other bundles which are used to convert the E6+ versions to the required version of browser and then they 
+2)Webpack also do tree shaking ie to remove un-necessary imports to optimize the code.
+3)When use 'as' keyword for creating aliases in import and export.
+4)There's difference between default and named imports.
+	Default				Named
+1)Only one default export per file.
+2)Here there's no need to use |We need to use curly braces while importing
+curly braces while importing  |
+3)We can have both default and named exports but in practise it's not a good idea to do so.
+4)It's not necessary to have name for default exports but for named exports its a must.
+5)We can use default us 'as' when we have both named and default exports
+eg:import {default as User, sayHi} from './user.js';
+
+*****************Re-Exporting*****************
+1) We use it if we want to export the imported file
+eg: export {module1} from './file1.js'
+
+2)Re-exporting the default files are difficult so we can use default as to export it.
+eg: export {default as module} from './'
+ 	and we can't export * from './module.js' to get default module
+	export {default} from './module.js'
+
+
+***************Dynamic Imports***************
+What if we want to use a import in a constraints like if or else statement that's where Dynamic imports come into play.
+
+The call here can't be function or else anyother type it has to be string.
+
+Use import(modulePath) -----> returns object of promise type.
+Dynamic imports dont require a regular scripts, they don't require "module" to be used.
+
+We can use await if it's inside a async function
